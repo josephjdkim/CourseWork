@@ -1,10 +1,7 @@
-//
 //  Doubly Linked List
 //  (Recitation 12 for Object Oriented Programming under Prof. John Sterling)
 //
-//  Created by Joe Kim on 12/1/17.
 //  Copyright © 2017 Joe Kim. All rights reserved.
-//
 
 #include <cstdlib>
 #include <iostream>
