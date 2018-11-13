@@ -58,21 +58,13 @@ def executeMove(board, move):
     # based on instruction, 0 tile is swapped with another tile, effectively
     # "moving" the tiles
     if move == "U":
-        swap_val = new_board[zero_i - 1][zero_k]
-        new_board[zero_i - 1][zero_k] = 0
-        new_board[zero_i][zero_k] = swap_val
+        new_board[zero_i][zero_k], new_board[zero_i - 1][zero_k] = new_board[zero_i - 1][zero_k], 0
     elif move == "D":
-        swap_val = new_board[zero_i + 1][zero_k]
-        new_board[zero_i + 1][zero_k] = 0
-        new_board[zero_i][zero_k] = swap_val
+        new_board[zero_i][zero_k], new_board[zero_i + 1][zero_k] = new_board[zero_i + 1][zero_k], 0
     elif move == "L":
-        swap_val = new_board[zero_i][zero_k - 1]
-        new_board[zero_i][zero_k - 1] = 0
-        new_board[zero_i][zero_k] = swap_val
+        new_board[zero_i][zero_k], new_board[zero_i][zero_k - 1] = new_board[zero_i][zero_k - 1], 0
     elif move == "R":
-        swap_val = new_board[zero_i][zero_k + 1]
-        new_board[zero_i][zero_k + 1] = 0
-        new_board[zero_i][zero_k] = swap_val
+        new_board[zero_i][zero_k], new_board[zero_i][zero_k + 1] = new_board[zero_i][zero_k + 1], 0
     return new_board
 
 def aStarTiles(initial_state, goal_board):
@@ -161,6 +153,7 @@ def main():
     GOAL_STATE = State(GOAL, GOAL)
 
     solution = aStarTiles(INITIAL_STATE, GOAL)
+
     outputSolution(INITIAL, GOAL, solution, output_name)
 
 if __name__ == "__main__":
